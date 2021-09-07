@@ -1,0 +1,37 @@
+'''
+【首先需要记住简单的一些参数之类的。然后准备工作结束就可以直接写了】
+代码：参数（650, 350, 200, 200）(-250) (25) ("purple") (-40) (40,80)(-40,80) (40, 80/2) (40) (16, 180) (40*2/3)  
+
+'''
+
+import turtle  
+
+turtle.setup(650, 350, 200, 200)  
+
+turtle.penup()  
+
+turtle.fd(-250)  
+
+turtle.pendown()  
+
+turtle.pensize(25)  
+
+turtle.pencolor("purple")  
+
+turtle.seth(-40)  
+
+for i in range(4):  
+
+    turtle.circle(40, 80)  
+
+    turtle.circle(-40, 80)  
+
+turtle.circle(40, 80/2)  
+
+turtle.fd(40)  
+
+turtle.circle(16, 180)  
+
+turtle.fd(40*2/3)  
+
+turtle.done 
