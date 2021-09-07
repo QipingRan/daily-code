@@ -1,0 +1,70 @@
+'''
+第一，绘制同切圆
+【思路很简单。一个个绘制就行】
+
+import turtle  
+
+turtle.pensize(2)  
+
+turtle.circle(10)  
+
+turtle.circle(40)  
+
+turtle.circle(80)  
+
+turtle.circle(160)  
+
+
+第二，绘制五角星
+【也很简单。算出转向的角度，然后for循环就好，自然也可以设置一下颜色。五角星肯定是红色，就设置red】
+
+from turtle import*  
+
+color('red', 'red')  
+
+begin_fill()  
+
+for i in range(5):  
+
+fd(200)  
+
+rt(144)  
+
+end_fill() 
+
+
+
+第三，正方形
+forward(100)  
+
+left(90)  
+
+forward(100)  
+
+left(90)  
+
+forward(100)  
+
+left(90)  
+
+forward(100)  
+
+left(90) 
+简化：
+
+for i in range(4) : 
+
+fd(100) 
+
+left(90) 
+
+
+第四，等边三角形： 
+
+for i in range(3) : 
+
+fd(100) 
+
+left(120)  #或者right(60)
+
+'''
