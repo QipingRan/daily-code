@@ -1,0 +1,35 @@
+#例子：身体质量指数BMI的计算问题？分开和合在一起二种思路。和在一起的代码？？ 
+
+height, weight = eval(input("请输入身高（米）和体重\（公斤）[用逗号隔开]："))  
+
+bmi = weight / pow(height, 2)  
+
+print("BMI数值为：{:.2f}".format(bmi))  
+
+who = " ", nat = " "  
+
+if bmi < 18.5:  
+
+    who = "偏瘦", nat = "偏瘦"  
+
+elif 18.5 <= bmi < 24:  
+
+    who = " 正常", nat = "正常"  
+
+elif 24 <= bmi < 25:  
+
+    who = "正常", nat = "偏胖"  
+
+elif 25 <= bmi < 28:  
+
+    who = "偏胖", nat = "偏胖"  
+
+elif 28 <= bmi < 30:  
+
+    who = "偏胖", nat = "肥胖"  
+
+else:  
+
+    who = "肥胖", nat = " 肥胖"  
+
+print("BMI数值为：国际{0}国内{1}".format(who, nat)) 
