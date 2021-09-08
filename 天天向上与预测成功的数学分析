@@ -1,0 +1,78 @@
+'''
+
+例子一：天天向上，一年360天，每天进步或者退步1%，一年后是多少？？ 
+
+dayup = pow(1.01, 365)  
+
+daydown = pow(0.99, 365)  
+
+print("向上: {:.2f}, 向下：{:.2f}".format(dayup, daydown)) 
+
+也可以是 
+
+dayfactor = 0.001  
+
+dayup = pow(1 + dayfactor, 365)  
+
+daydown = pow(1 - daypower, 365)  
+
+print("向上：{:.2f}, 向下：{:.2f}".format(dayup, daydown)) 
+
+------------------------------
+
+
+变例2：假如平时进步1%， 双休日退步1%， 如何编码？-- 条件判断--余数 
+
+dayup = 1  
+
+dayfactor = 0.01  
+
+for i in range(365):  
+
+    if i % 7 in [6, 0]:  
+
+    dayup = dayup * (1 - daypower)  
+  
+else:  
+
+    dayup = dayup *(1 + dayfactor)  
+
+print("向上：{:.2f}".format(dayup)) 
+
+
+------------------
+
+变例3：问题：工作日的5天，怎么努力才能和每天努力1%一样的结果？休息日下降1%。----这--求解dayfactor。 
+
+for i in range (): 数学思维 def ... while...笨蛋法试错 
+
+代码：  
+
+def dayup(dayfactor):  
+
+    dayup = 1  
+
+    for i in range(365):  
+
+        if i % 7 in [6, 0]:  
+
+            dayup = dayup * (1 - 0.01)  
+
+        else:  
+
+            dayup = dayup * (1 + dayfactor)  
+
+    dayfactor = 0.01  
+
+    while dayup(dayfactor) < 37.78:  
+
+        dayfactor += 0.001 #也就是dayfactor = dayfactor + 0.001  
+
+print("工作日的努力参数是：{:.3f}".format(dayfactor)) 
+
+
+【结果是1.9%。这启示我们，哪怕是双休日也不能休息。因为你休息二天，你平时就要付出双倍的努力，才有可能达到相同的效果。
+-----所以，做人，哪怕再累，也不能休息。一旦停下来，在想从新开始，太难了。一旦停下来，所付出的太多了。休息一天，相当于白干三天。
+
+
+'''
