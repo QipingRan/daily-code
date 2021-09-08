@@ -1,0 +1,65 @@
+'''
+知识补充：
+蒙特卡罗方法？？？ 
+
+蒙特卡罗方法----就是不断的随机撒点，或者说随机投石子，当数量无穷大的时候，也就越接近算出圆的面积 因为你分析 ΠR**2 ------R**2就是一个1/4正方形，换句话说“Π = 小正方形面积/ 圆面积” 
+
+--------- 案例：圆周率的计算问题 ？？？数学公式？？蒙特卡洛方法？？ 
+
+例：思路，用循环，一个比较大的数字，循环相加，然后在求和。算出Π的大概数值  
+'''
+
+
+'''
+第一种，数学公式方法：
+pi = 0  
+
+n = 100  
+
+for k in range(n) :  
+
+    pi += 1/pow(16, k)*(4 / (8k + 1) - \  
+
+    2/(8k + 4) - 1/(8k + 5) -\  
+
+    1/(8k + 6))  
+
+print("圆周率的值是：{}".format(pi)) 
+'''
+
+#蒙特卡洛方法
+
+from random import random  
+
+from time import perf_counter  
+
+DARTS = 1000*1000  
+
+hits = 0  
+
+start = perf_counter()  
+
+for i in range(1, DARTS + 1) :  
+
+    x, y = random(), random() #random是0到1的随机变量  
+
+    dis = pow(pow(x, 2) + pow(y, 2), 0.5)  
+
+    if dis <= 1 :  
+
+        hits = hits + 1  
+
+pi = 4 * (hits/DARTS)  
+
+print("圆周率是：{}".format(pi))  
+
+print("运行的时间是：{}".format(perf_counter() - start)) 
+
+
+
+
+
+
+
+
+
