@@ -1,0 +1,84 @@
+'''
+基础知识补习：
+wordcloud库概述---wordcloud是优秀的词云展示的第三方库 
+----词云以词语为基本单位，更加直观和艺术的展示文本 
+wordcould库安装----（cmd命令行）pip install wordcloud 
+wordcloud库基本使用----wordcloud库把词云当作一个wordcloud对象 
+第一，wordcloud.WordCloud()代表一个文本对应的词云 
+第二，可以根据文本中词语出现的频率等参数绘制词云 
+第三，绘制词云的形状，尺寸和颜色都可以设定 
+wordcloud库常规方法----w = wordcloud.WordCloud() 
+第一，以WordCould对象为基础 
+第二，配置参数，加载文本，输出文件 
+ wordcould库常规方法---w = wordcloud.WordCloud() 
+w.generat(txt)    向WordCloud对象w中加载文本txt ， 例：w.generate("Python and WordCloud") 
+w.to_file(filename)   将词云输出为图像文件， .png或.jpg格式----例：w.to_file("outfile.png") 
+wordcloud库常规方法---- 
+步骤1：配置对象参数 
+步骤2：加载词云文本 
+步骤3：输出词云文件 
+import wordcloud 
+c = wordcloud.WordCloud() 
+c.generate("wordcloud by Python") 
+c.to_file("pywordcloud.png") 
+wordcloud库常规方法 
+第一，分隔，以空格分隔单词 
+第二，统计，单词出现次数并过滤 
+第三，字体，根据统计配置字号 
+第四，布局，颜色环境尺寸 
+配置对象参数----w = wordcloud.WordCloud(<参数>) 
+width, heigh 指定词云对象生成图片的宽度和高度，宽度默认400像素，高度默认200像素 
+配置对象参数 
+min_font_size, max_font_size 指定词云中字体的最小字号或者最大字号，最小默认为4号。 
+font_step 指定词云中字体字号的步进间隔，默认为1 
+配置对象参数 
+font_path  指定字体文件的路径，默认为None。例：指定为微软雅黑 w = wordcloud.WordCloud(font_path="msyh.ttc") 
+max_words 指定词云现实最大单词数量，默认为200 
+stop_words 指定词云的排除词列表，即不显示的单词列表。例：w=wordcloud.WordCloud(stop_word={"Python"}) 
+配置对象参数 
+mask  指定词云形状，默认为长方形，需要引用imread()函数----例： 
+from scipy.misc import imread 
+mk=imread("pic.png") 
+w=wordcloud.WordCloud(mask=mk) 
+background_color  指定词云图片的背景颜色，默认为黑色 
+
+'''
+'''
+直观理解政策文件 
+第一，需求：对于政府工作报告等政策文件，如何直观理解？ 
+第二，体会直观的价值：生成词云或优化词云 
+政府工作报告等文件-----到----有效展示的词云 
+政府工作报告词云 
+基本思路 
+步骤1：读取文件，分词整理 
+步骤2：设置并输出词云 
+步骤3：观察结果，优化迭代 
+'''
+
+import jieba
+import wordcloud
+#from scipy.misc import imread
+from matplotlib.pyplot import imread
+mask = imread("China.jpg")
+f = open("2020年政府工作报告.txt", "r", encoding="utf-8")
+exclude = {'我们','今年','万亿元'}  
+t = f.read()
+f.close()
+ls = jieba.lcut(t)
+     
+txt = " ".join(ls)
+font='C:/Windows/Fonts/simfang.ttf'
+w = wordcloud.WordCloud( \
+    width = 1000, height = 700,\
+    background_color = "white",\
+    font_path=font,\
+    mask=mask,\
+    stopwords=exclude
+    )
+w.generate(txt)
+w.to_file("政府工作报告词云.png")
+
+
+
+
+
