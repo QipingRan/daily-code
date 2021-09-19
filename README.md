@@ -7,7 +7,7 @@
 
 
 
-大厂指，Amazon，Facebook，goole等，和一些独角兽公司
+大厂指，Amazon，Facebook，google等，和一些独角兽公司
 
   
 
