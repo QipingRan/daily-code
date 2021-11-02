@@ -1,0 +1,18 @@
+import turtle
+import random
+
+def draw_square(sz):
+    for i in range(4):
+        turtle.forward(20)
+        turtle.left(90)
+def main():
+   for i in range(4):
+       x = random.randrange(-200,200)
+       y = random.randrange(-200,200)
+       turtle.penup()
+       turtle.goto(x,y)
+       turtle.pendown()
+       draw_square(20)
+
+main()
+#随机的颜色还没有写。有点累。下次有空再更
