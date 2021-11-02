@@ -1,0 +1,116 @@
+要求：就是用turtle画一个“HELLO”就这样。
+难点：其实不难，除了繁琐，没什么。感觉挺ez的
+
+
+import turtle
+
+def draw_H(t, xpos, ypos, height):
+    '''Draws an H using turtle t'''
+    t.speed(10)
+    t.up()
+    t.goto(xpos, ypos)
+    t.down()
+    
+    t.setheading(-90)    #Face South
+    
+    t.forward(height)    #Draw left side
+    t.back(height/2)
+    
+    t.left(90)           #Face East
+    
+    t.forward(height/2)  #Draw horizontal bar
+    
+    t.left(90)           #Face North
+    
+    t.forward(height/2)  #Go to the top of the letter
+    
+    t.right(180)         #Face South
+    t.forward(height)    #Draw right side
+
+def draw_E(t, xpos, ypos, height):
+    t.speed(10)
+    t.up()
+    t.goto(xpos, ypos)
+    t.down()
+    t.setheading(-90)    #Face South
+    
+    t.forward(height)    #Draw left side
+    t.back(height/2)
+    
+    t.left(90)           #Face East
+    
+    t.forward(height/2)  #Draw horizontal bar
+    
+    t.left(90)           #Face North
+    t.up()
+    t.forward(height/2)  #Go to the top of the letter
+    t.down()
+    t.left(90)         #Face South
+    t.forward(height/2)
+    t.left(90)
+    t.forward(height)
+    t.left(90)
+    t.forward(height/2)
+  #Draw right side
+    
+
+
+def draw_L(t, xpos, ypos, height):
+    t.speed(10)
+    t.up()
+    t.goto(xpos, ypos)
+    t.down()
+    
+    t.setheading(-90)    #Face South
+    
+    t.forward(height)    #Draw left side
+    
+    
+    t.left(90)           #Face East
+    
+    t.forward(height/2)  #Draw horizontal bar
+    
+    
+
+def draw_O(t, xpos, ypos, height):
+    t.speed(1)
+    t.up()
+    t.goto(xpos, ypos)
+    t.down()
+    
+    t.setheading(-90)    #Face South
+    
+    t.forward(height)    #Draw left side
+    
+    
+    t.left(90)           #Face East
+    
+    t.forward(height/2)  #Draw horizontal bar
+    
+    t.left(90)           #Face North
+    
+    t.forward(height)  #Go to the top of the letter
+    
+    t.left(90)         #Face South
+    t.forward(height/2)    #Draw right side
+
+def main():
+    wn = turtle.Screen()
+    jack = turtle.Turtle()
+    jack.speed(5)
+    x = -180       #Starting x position for letters
+    y = 50         #Starting y position for letters
+    letter_height = 50  #Height of letters
+    distance = letter_height  #Distance between left side of letter and next letter
+    draw_H(jack, x, y, letter_height)
+    x = x + distance  #Move over for next letter
+    draw_E(jack, x, y, letter_height)
+    x = x + distance
+    draw_L(jack, x, y, letter_height)
+    x = x + distance
+    draw_L(jack, x, y, letter_height)
+    x = x + distance + distance/3  #O needs some extra space
+    draw_O(jack, x, y, letter_height)
+    wn.exitonclick()
+
+main()
