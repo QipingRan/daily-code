@@ -1,0 +1,16 @@
+#f(x)=(a,b,c)
+#直接求二位方程式
+#f(x)=ax**2+bx+c
+#f'(x)=2a+b
+def time2_function(a,b,c):
+    string="导数是：f'(x)="+str(2*a)+"x+"+str(b)+"x"
+    return string
+
+def main():
+    a=input("请输入二次方程的a: ")
+    b=input("请输入二次方程的b: ")
+    c=input("请输入二次方程的c: ")
+    print(time2_function(a, b, c))
+    
+    
+main()
