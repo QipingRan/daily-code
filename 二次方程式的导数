@@ -14,3 +14,31 @@ def main():
     
     
 main()
+
+--------------------
+
+#f(x)=(a,b,c)
+#直接求二位方程式
+#f(x)=ax**2+bx+c
+#f'(x)=2a+b
+def time2_function(a,b,c):
+    string="导数是：f'(x)="+str(2*a)+"x+"+str(b)+"x"
+    return string
+
+def time3_function(a,b,c):
+    string="导数是：f'(x)="+str(3*a)+"x**2+"+str(2*b)+"x**2+"+str(c)
+    return string
+
+def main():
+    s=input("请问这是二次还是三次方程:(二次，输入5；三次输入3) ")
+    a=int(input("请按照顺序输入方程的序数(没有的输入0): "))
+    b=int(input("请按照顺序输入方程的序数(没有的输入0): "))
+    c=int(input("请按照顺序输入方程的序数(没有的输入0): "))
+    d=int(input("请按照顺序输入方程的序数(没有的输入0): "))
+    if s=="2":
+        print(time2_function(a, b, c))
+    else:
+        print(time3_function(a, b, c))
+    
+    
+main()
