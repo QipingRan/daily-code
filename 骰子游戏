@@ -1,0 +1,71 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+enum GameStatus {WIN, LOSE, PLAYING};
+
+int main(){
+    int sum, myPoint;
+    GameStatus status;
+    unsigned seed;
+    int rollDice();
+    cout<<"Please enter an unsigned integer: ";
+    cin>>seed;
+    srand(seed); //种子传递给rand
+    sum=rollDice();//first turn, sum
+
+    switch(sum){
+    case 7:
+    case 11:
+        status=WIN;
+        break;
+    case 2:
+    case 3:
+    case 12:
+        status =LOSE;
+        break;
+    default:
+        status=PLAYING;
+        myPoint=sum;
+        cout<<"point is "<<myPoint<<endl;
+        break;
+    }
+
+    while(status==PLAYING){
+        sum=rollDice();
+        if(sum==myPoint)
+            status=WIN;
+        else if(sum==7)
+            status=LOSE;
+    }
+
+    if(status==WIN)
+        cout<<"player wins"<<endl;
+    else
+        cout<<"player loses"<<endl;
+    return 0;
+}
+
+int rollDice(){
+    int die1=1+rand()%6;
+    int die2=1+rand()%6;
+    int sum=die1+die2;
+    cout<<"player rolled"<<die1<<"+"<<
+    die2<<"="<<sum<<endl;
+    return sum;
+}
+
+////
+////7.例子：投骰子的随机游戏。一个骰子6个面，1到6； 
+////
+////开始输入无符号整数，作为种子。每轮投二次骰子。第一轮，如果和数是7或者11.胜利；
+//2，3，11为失败。游戏均结束。 
+////
+////否则，和数作为点数，继续，直到，某伦的和数等于点数。则胜利。。或者，之前，和数为7.失败。
+//均游戏结束。 
+
+//Please enter an unsigned integer: 23
+//player rolled6+3=9
+//point is 9
+//player rolled5+4=9
+//player wins
